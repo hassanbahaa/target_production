@@ -2,15 +2,15 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Languages } from "lucide-react";
 import { useState } from "react";
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useLanguage } from '../context/LanguageContext'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useLanguage } from "../context/LanguageContext";
 import Image from "next/image";
 import targetLogo from "../public/assets/targetlogo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router  = useRouter();
+  const router = useRouter();
   const { language, toggleLanguage, t } = useLanguage();
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -66,6 +66,14 @@ const Header = () => {
               }`}
             >
               {t("nav.testimonials")}
+            </Link>{" "}
+            <Link
+              href="/blog"
+              className={`text-foreground hover:text-primary transition-colors ${
+                isActive("/blogs") ? "text-primary font-semibold" : ""
+              }`}
+            >
+              {t("nav.blogs")}
             </Link>
             <Link
               href="/contact"
@@ -153,6 +161,15 @@ const Header = () => {
               }`}
             >
               {t("nav.testimonials")}
+            </Link>
+            <Link
+              href="/blog"
+              onClick={closeMenu}
+              className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
+                isActive("/blogs") ? "text-primary font-semibold" : ""
+              }`}
+            >
+              {t("nav.blogs")}
             </Link>
             <Link
               href="/contact"

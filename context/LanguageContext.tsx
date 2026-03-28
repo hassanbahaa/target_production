@@ -36,6 +36,7 @@ const translations = {
     "nav.about": "من نحن",
     "nav.services": "خدماتنا",
     "nav.testimonials": "آراء العملاء",
+    "nav.blogs": "مقالات",
     "nav.contact": "اتصل بنا",
     "nav.cta": "احجز استشارة",
     // meta services data
@@ -213,6 +214,7 @@ const translations = {
     "nav.about": "About",
     "nav.services": "Services",
     "nav.testimonials": "Testimonials",
+    "nav.blogs": "Blogs",
     "nav.contact": "Contact",
     "nav.cta": "Book Consultation",
     // Contact SEO
