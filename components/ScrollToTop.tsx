@@ -1,3 +1,5 @@
+"use client";
+
 // components/ScrollToTop.tsx
 import { useEffect } from "react";
 import { useRouter } from 'next/router';

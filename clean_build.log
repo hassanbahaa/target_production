@@ -1,0 +1,19 @@
+
+> my-next-app@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Linting and checking validity of types ...
+Failed to compile.
+
+./components/ui/menubar.tsx:2:35
+Type error: Cannot find module '@radix-ui/react-menubar' or its corresponding type declarations.
+
+[0m [90m 1 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mMenubarPrimitive[39m [36mfrom[39m [32m"@radix-ui/react-menubar"[39m[33m;[39m[0m
+[0m [90m   |[39m                                   [31m[1m^[22m[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mChevronRight[39m[33m,[39m [33mCircle[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m[0m
+[0m [90m 4 |[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null

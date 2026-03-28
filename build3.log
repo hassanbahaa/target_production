@@ -1,0 +1,19 @@
+
+> my-next-app@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Linting and checking validity of types ...
+Failed to compile.
+
+./components/ui/navigation-menu.tsx:2:42
+Type error: Cannot find module '@radix-ui/react-navigation-menu' or its corresponding type declarations.
+
+[0m [90m 1 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mNavigationMenuPrimitive[39m [36mfrom[39m [32m"@radix-ui/react-navigation-menu"[39m[33m;[39m[0m
+[0m [90m   |[39m                                          [31m[1m^[22m[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { cva } [36mfrom[39m [32m"class-variance-authority"[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { [33mChevronDown[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m[0m
+[0m [90m 5 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null

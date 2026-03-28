@@ -1,3 +1,5 @@
+"use client";
+
 import {
   createContext,
   useContext,
@@ -397,19 +399,23 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("language");
-      return (saved as Language) || "ar";
-    }
-    return "ar";
-  });
+  const [language, setLanguage] = useState<Language>("ar");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const saved = localStorage.getItem("language");
+    if (saved) {
+      setLanguage(saved as Language);
+    }
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     localStorage.setItem("language", language);
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = language;
-  }, [language]);
+  }, [language, mounted]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "ar" ? "en" : "ar"));

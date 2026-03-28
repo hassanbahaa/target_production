@@ -1,3 +1,5 @@
+"use client";
+
 // components/Header.tsx
 import { Button } from "@/components/ui/button";
 import { Menu, Languages } from "lucide-react";

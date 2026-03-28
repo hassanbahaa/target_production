@@ -1,0 +1,13 @@
+components/ui/navigation-menu.tsx(2,42): error TS2307: Cannot find module '@radix-ui/react-navigation-menu' or its corresponding type declarations.
+components/ui/popover.tsx(2,35): error TS2307: Cannot find module '@radix-ui/react-popover' or its corresponding type declarations.
+components/ui/progress.tsx(2,36): error TS2307: Cannot find module '@radix-ui/react-progress' or its corresponding type declarations.
+components/ui/radio-group.tsx(2,38): error TS2307: Cannot find module '@radix-ui/react-radio-group' or its corresponding type declarations.
+components/ui/resizable.tsx(2,37): error TS2307: Cannot find module 'react-resizable-panels' or its corresponding type declarations.
+components/ui/scroll-area.tsx(2,38): error TS2307: Cannot find module '@radix-ui/react-scroll-area' or its corresponding type declarations.
+components/ui/select.tsx(2,34): error TS2307: Cannot find module '@radix-ui/react-select' or its corresponding type declarations.
+components/ui/separator.tsx(2,37): error TS2307: Cannot find module '@radix-ui/react-separator' or its corresponding type declarations.
+components/ui/slider.tsx(2,34): error TS2307: Cannot find module '@radix-ui/react-slider' or its corresponding type declarations.
+components/ui/switch.tsx(2,35): error TS2307: Cannot find module '@radix-ui/react-switch' or its corresponding type declarations.
+components/ui/tabs.tsx(2,32): error TS2307: Cannot find module '@radix-ui/react-tabs' or its corresponding type declarations.
+components/ui/toggle-group.tsx(2,39): error TS2307: Cannot find module '@radix-ui/react-toggle-group' or its corresponding type declarations.
+components/ui/toggle.tsx(2,34): error TS2307: Cannot find module '@radix-ui/react-toggle' or its corresponding type declarations.
