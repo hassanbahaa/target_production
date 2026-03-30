@@ -16,7 +16,7 @@ type Props = {
 
 export default function PostPage({ post, relatedPosts }: Props) {
   const router = useRouter();
-  const { language, isRTL } = useLanguage(); // // RTL/LTR: Centralized language and direction handling
+  const { language, isRTL } = useLanguage();
   const [url, setUrl] = useState("");
 
   // --- TRANSLATION HANDLING ---
