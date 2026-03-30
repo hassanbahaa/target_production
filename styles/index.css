@@ -256,13 +256,13 @@ All colors MUST be HSL.
   font-size: 1.75rem; /* 28px */
   color: #1e2937;
   position: relative;
-  padding-right: 1.25rem;
+  padding-inline-start: 1.25rem;
 }
 
 .article-content h2::before {
   content: "";
   position: absolute;
-  right: 0;
+  inset-inline-start: 0;
   top: 0.35em;
   width: 6px;
   height: 6px;
@@ -291,12 +291,20 @@ All colors MUST be HSL.
   color: #64748b;
 }
 
-/* تحسينات إضافية للقراءة بالعربية */
+/* تحسينات إضافية للقراءة بالعربية والانجليزية */
 .article-content {
-  direction: rtl;
-  text-align: right;
   line-height: 1.8;
   font-size: 1.0625rem; /* حوالي 17px للنص العادي */
+}
+
+/* RTL Specifics */
+[dir="rtl"] .article-content {
+  text-align: right;
+}
+
+/* LTR Specifics */
+[dir="ltr"] .article-content {
+  text-align: left;
 }
 
 /* مسافات أفضل بين العناصر */

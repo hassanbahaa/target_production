@@ -6,7 +6,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import SocialSharingButtons from "@/components/SocialSharingButtons";
 import PostCard from "@/components/blog/PostCard";
-import SEOHead from "@/components/SEOHead";
+import SEOHead, { SITE_URL } from "@/components/SEOHead";
+import { useRouter } from "next/router";
 
 type Props = {
   post: Post;
@@ -14,23 +15,68 @@ type Props = {
 };
 
 export default function PostPage({ post, relatedPosts }: Props) {
-  const { language } = useLanguage();
-  const isRTL = language === "ar";
+  const router = useRouter();
+  const { language, isRTL } = useLanguage(); // // RTL/LTR: Centralized language and direction handling
   const [url, setUrl] = useState("");
+
+  // --- TRANSLATION HANDLING ---
+  // Detect current language from global context.
+  // Fallback to Arabic if the specified translation is missing.
+  const translation = post.translations?.[language] || post.translations?.ar || {
+    title: post.title,
+    description: post.description
+  };
+
+  const displayTitle = translation.title;
+  const displayDescription = translation.description;
 
   useEffect(() => {
     setUrl(window.location.href);
   }, []);
 
+  // --- SEO DATA DEFINITION: SCHEMA MARKUP (JSON-LD) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": displayTitle,
+    "description": displayDescription,
+    "image": post.image ? `${SITE_URL}${post.image}` : undefined,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Organization",
+      "name": "Target Hotel Marketing",
+      "url": SITE_URL
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Target Hotel Marketing",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/targetlogo.png`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}${router.asPath}`
+    },
+    "inLanguage": language
+  };
+
   return (
     <>
       <Head>
-        <title>{post.title}</title>
-        <meta name="description" content={post.description} />
+        <title>{displayTitle}</title>
+        <meta name="description" content={displayDescription} />
+        {/* --- METADATA GENERATED --- */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
+
       <SEOHead
-        title={post.title}
-        description={post.description}
+        title={displayTitle}
+        description={displayDescription}
         ogType="article"
         ogImage={post.image}
       />
@@ -42,18 +88,12 @@ export default function PostPage({ post, relatedPosts }: Props) {
           <section className="section-padding ">
             <div className="container-custom max-w-3xl">
               {/* Title */}
-              <h1
-                className="text-3xl md:text-4xl font-bold mb-4"
-                dir={isRTL ? "rtl" : "ltr"}
-              >
-                {post.title}
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                {displayTitle}
               </h1>
 
               {/* Date */}
-              <p
-                className="text-muted-foreground mb-6"
-                dir={isRTL ? "rtl" : "ltr"}
-              >
+              <p className="text-muted-foreground mb-6">
                 {post.date}
               </p>
 
@@ -62,27 +102,27 @@ export default function PostPage({ post, relatedPosts }: Props) {
                 <img
                   src={post.image}
                   className="rounded-lg mb-6 w-full max-h-[400px] object-cover"
+                  alt={displayTitle}
                 />
               )}
 
-              {/* Content */}
+              {/* --- CONTENT RENDERING --- */}
+              {/* Select the correct multilingual section based on current language */}
               <div
                 className="prose max-w-none article-content"
-                dir={isRTL ? "rtl" : "ltr"}
-                dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+                dangerouslySetInnerHTML={{ 
+                  __html: (language === "ar" ? post.contentHtmlAr : post.contentHtmlEn) || post.contentHtml 
+                }}
               />
 
-              <SocialSharingButtons url={url} title={post.title} />
+              <SocialSharingButtons url={url} title={displayTitle} />
             </div>
           </section>
 
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="section-padding bg-muted/30">
               <div className="container-custom">
-                <h2 
-                  className="text-2xl font-bold mb-8 text-center"
-                  dir={isRTL ? "rtl" : "ltr"}
-                >
+                <h2 className="text-2xl font-bold mb-8 text-center">
                   {isRTL ? "مقالات ذات صلة" : "Related Articles"}
                 </h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

@@ -14,6 +14,7 @@ type Language = "ar" | "en";
 
 interface LanguageContextType {
   language: Language;
+  isRTL: boolean;
   toggleLanguage: () => void;
   t: (key: string) => string;
 }
@@ -404,6 +405,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
   const locale = getLocaleFromPath(router.asPath);
   const [language, setLanguage] = useState<Language>(locale);
+  const isRTL = language === "ar";
 
   // Sync language state whenever the URL changes
   useEffect(() => {
@@ -411,11 +413,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     setLanguage(detected);
   }, [router.asPath]);
 
-  // Set document direction and lang attribute
+  // // RTL/LTR handling: Set document direction and lang attribute
   useEffect(() => {
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.dir = isRTL ? "rtl" : "ltr";
     document.documentElement.lang = language;
-  }, [language]);
+  }, [language, isRTL]);
 
   const toggleLanguage = () => {
     const alternatePath = getAlternateLocalePath(router.asPath);
@@ -430,7 +432,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, isRTL, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

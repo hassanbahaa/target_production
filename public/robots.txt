@@ -1,13 +1,13 @@
-# ROBOTS CONFIG - EDIT IF NEEDED
-# This file controls which pages search engines can crawl
-# Domain: https://www.targethotelmarketing.com
+# ROBOTS CONFIG
+# Domain: https://targethotelmarketing.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.targethotelmarketing.com/sitemap.xml
+Sitemap: https://targethotelmarketing.com/sitemap.xml
 
-# Disallow crawling of internal/admin pages (add paths as needed)
-# Disallow: /api/
-# Disallow: /admin/
+# Disallow system files
+Disallow: /_next/
+Disallow: /static/
+Disallow: /api/
