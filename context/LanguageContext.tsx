@@ -7,6 +7,8 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import { useRouter } from "next/router";
+import { getLocaleFromPath, getAlternateLocalePath } from "@/lib/i18n";
 
 type Language = "ar" | "en";
 
@@ -399,26 +401,28 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("ar");
-  const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+  const locale = getLocaleFromPath(router.asPath);
+  const [language, setLanguage] = useState<Language>(locale);
 
+  // Sync language state whenever the URL changes
   useEffect(() => {
-    const saved = localStorage.getItem("language");
-    if (saved) {
-      setLanguage(saved as Language);
-    }
-    setMounted(true);
-  }, []);
+    const detected = getLocaleFromPath(router.asPath);
+    setLanguage(detected);
+  }, [router.asPath]);
 
+  // Set document direction and lang attribute
   useEffect(() => {
-    if (!mounted) return;
-    localStorage.setItem("language", language);
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = language;
-  }, [language, mounted]);
+  }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "ar" ? "en" : "ar"));
+    const alternatePath = getAlternateLocalePath(router.asPath);
+    // Save the user's language choice so "/" respects it on next visit
+    const newLang = language === "ar" ? "en" : "ar";
+    localStorage.setItem("language", newLang);
+    router.push(alternatePath);
   };
 
   const t = (key: string): string => {

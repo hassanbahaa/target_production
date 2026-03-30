@@ -5,6 +5,8 @@ import { Hotel, TrendingUp, Search, BarChart } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Head from "next/head";
 import { useLanguage } from "@/context/LanguageContext";
+import SEOHead from "@/components/SEOHead";
+import { SITE_URL } from "@/lib/i18n";
 const Services = () => {
   const { t, language } = useLanguage();
   const isRTL = language === "ar";
@@ -57,11 +59,16 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO */}
       <Head>
-        <title dir={isRTL ? "rtl" : "ltr"}> {t("nav.services")}</title>
+        <title>{t("nav.services")}</title>
         <meta name="description" content={t("services.meta.description")} />
+        <meta property="og:locale" content={language === "ar" ? "ar_AR" : "en_US"} />
       </Head>
+      <SEOHead
+        title={t("nav.services")}
+        description={t("services.meta.description")}
+        ogImage={`${SITE_URL}/assets/targetlogo.webp`}
+      />
 
       <Header />
 

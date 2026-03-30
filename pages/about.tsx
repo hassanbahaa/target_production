@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import targetLogo from "../public/assets/targetlogo.webp";
 import Head from "next/head";
 import { useLanguage } from "@/context/LanguageContext";
+import SEOHead from "@/components/SEOHead";
+import { SITE_URL } from "@/lib/i18n";
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -12,27 +14,16 @@ const About = () => {
 
   return (
     <>
-      {/* Dynamic SEO Tags */}
       <Head>
         <title>{t("about.meta.title")}</title>
         <meta name="description" content={t("about.meta.description")} />
-
-        {/* Open Graph / Social Media Tags */}
-        <meta property="og:title" content={t("about.meta.title")} />
-        <meta property="og:description" content={t("about.meta.description")} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:locale"
-          content={language === "ar" ? "ar_AR" : "en_US"}
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:title" content={t("about.meta.title")} />
-        <meta
-          name="twitter:description"
-          content={t("about.meta.description")}
-        />
+        <meta property="og:locale" content={language === "ar" ? "ar_AR" : "en_US"} />
       </Head>
+      <SEOHead
+        title={t("about.meta.title")}
+        description={t("about.meta.description")}
+        ogImage={`${SITE_URL}/assets/targetlogo.webp`}
+      />
 
       <div className="min-h-screen">
         <Header />

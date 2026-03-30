@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import PostCard from "@/components/blog/PostCard";
 import { getAllPosts, PostMeta } from "@/lib/blog";
 import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
+import { SITE_URL } from "@/lib/i18n";
 
 type Props = {
   posts: PostMeta[];
@@ -18,9 +18,15 @@ export default function Blog({ posts }: Props) {
   return (
     <>
       <Head>
-        <title>Blog</title>
-        <meta name="description" content="Our latest articles" />
+        <title>{language === "ar" ? "المقالات | Target Hotel Marketing" : "Blog | Target Hotel Marketing"}</title>
+        <meta name="description" content={language === "ar" ? "أحدث المقالات والأخبار" : "Our latest articles and insights"} />
+        <meta property="og:locale" content={language === "ar" ? "ar_AR" : "en_US"} />
       </Head>
+      <SEOHead
+        title={language === "ar" ? "المقالات" : "Blog"}
+        description={language === "ar" ? "أحدث المقالات والأخبار" : "Our latest articles and insights"}
+        ogImage={`${SITE_URL}/assets/targetlogo.webp`}
+      />
 
       <div className="min-h-screen">
         <Header />
@@ -45,28 +51,7 @@ export default function Blog({ posts }: Props) {
             <div className="container-custom">
               <div className="grid md:grid-cols-3 gap-8">
                 {posts.map((post) => (
-                  <Link key={post.slug} href={`/blog/${post.slug}`}>
-                    <Card className="card-hover cursor-pointer">
-                      <CardContent className="p-6" dir={isRTL ? "rtl" : "ltr"}>
-                        {post.image && (
-                          <img
-                            src={post.image}
-                            className="rounded-lg mb-4 w-full h-48 object-cover"
-                          />
-                        )}
-
-                        <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-
-                        <p className="text-muted-foreground mb-4">
-                          {post.description}
-                        </p>
-
-                        <Button variant="outline" size="sm">
-                          {language === "ar" ? "اقرأ المزيد" : "Read More"}
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                  <PostCard key={post.slug} post={post} />
                 ))}
               </div>
             </div>

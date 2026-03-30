@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useLanguage } from "../context/LanguageContext";
 import Image from "next/image";
 import targetLogo from "../public/assets/targetlogo.png";
+import { localizeHref } from "@/lib/i18n";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,14 +18,19 @@ const Header = () => {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const isActive = (path: string) => router.pathname === path;
+  const isActive = (path: string) => {
+    const localized = localizeHref(path, language);
+    return router.asPath.replace(/\/$/, "") === localized.replace(/\/$/, "");
+  };
+
+  const L = (href: string) => localizeHref(href, language);
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background shadow-sm z-50">
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href={L("/")} className="flex items-center gap-3 group">
             <Image
               src={targetLogo}
               alt="Target Hotel Marketing Logo"
@@ -38,7 +44,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="/"
+              href={L("/")}
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/") ? "text-primary font-semibold" : ""
               }`}
@@ -46,7 +52,7 @@ const Header = () => {
               {t("nav.home")}
             </Link>
             <Link
-              href="/about"
+              href={L("/about")}
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/about") ? "text-primary font-semibold" : ""
               }`}
@@ -54,7 +60,7 @@ const Header = () => {
               {t("nav.about")}
             </Link>
             <Link
-              href="/services"
+              href={L("/services")}
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/services") ? "text-primary font-semibold" : ""
               }`}
@@ -62,23 +68,23 @@ const Header = () => {
               {t("nav.services")}
             </Link>
             <Link
-              href="/testimonials"
+              href={L("/testimonials")}
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/testimonials") ? "text-primary font-semibold" : ""
               }`}
             >
               {t("nav.testimonials")}
-            </Link>{" "}
+            </Link>
             <Link
-              href="/blog"
+              href={L("/blog")}
               className={`text-foreground hover:text-primary transition-colors ${
-                isActive("/blogs") ? "text-primary font-semibold" : ""
+                isActive("/blog") ? "text-primary font-semibold" : ""
               }`}
             >
               {t("nav.blogs")}
             </Link>
             <Link
-              href="/contact"
+              href={L("/contact")}
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/contact") ? "text-primary font-semibold" : ""
               }`}
@@ -99,7 +105,7 @@ const Header = () => {
                 {language === "ar" ? "EN" : "عربي"}
               </span>
             </button>
-            <Link href="/contact">
+            <Link href={L("/contact")}>
               <Button className="btn-primary">{t("nav.cta")}</Button>
             </Link>
           </div>
@@ -129,7 +135,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
             <Link
-              href="/"
+              href={L("/")}
               onClick={closeMenu}
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/") ? "text-primary font-semibold" : ""
@@ -138,7 +144,7 @@ const Header = () => {
               {t("nav.home")}
             </Link>
             <Link
-              href="/about"
+              href={L("/about")}
               onClick={closeMenu}
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/about") ? "text-primary font-semibold" : ""
@@ -147,7 +153,7 @@ const Header = () => {
               {t("nav.about")}
             </Link>
             <Link
-              href="/services"
+              href={L("/services")}
               onClick={closeMenu}
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/services") ? "text-primary font-semibold" : ""
@@ -156,7 +162,7 @@ const Header = () => {
               {t("nav.services")}
             </Link>
             <Link
-              href="/testimonials"
+              href={L("/testimonials")}
               onClick={closeMenu}
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/testimonials") ? "text-primary font-semibold" : ""
@@ -165,16 +171,16 @@ const Header = () => {
               {t("nav.testimonials")}
             </Link>
             <Link
-              href="/blog"
+              href={L("/blog")}
               onClick={closeMenu}
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
-                isActive("/blogs") ? "text-primary font-semibold" : ""
+                isActive("/blog") ? "text-primary font-semibold" : ""
               }`}
             >
               {t("nav.blogs")}
             </Link>
             <Link
-              href="/contact"
+              href={L("/contact")}
               onClick={closeMenu}
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/contact") ? "text-primary font-semibold" : ""
@@ -182,7 +188,7 @@ const Header = () => {
             >
               {t("nav.contact")}
             </Link>
-            <Link href="/contact" onClick={closeMenu}>
+            <Link href={L("/contact")} onClick={closeMenu}>
               <Button className="btn-primary w-full">{t("nav.cta")}</Button>
             </Link>
           </div>
@@ -193,3 +199,4 @@ const Header = () => {
 };
 
 export default Header;
+

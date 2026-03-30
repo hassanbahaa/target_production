@@ -1,16 +1,26 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getAllPosts, getPostBySlug, Post } from "@/lib/blog";
+import { getAllPosts, getPostBySlug, Post, PostMeta } from "@/lib/blog";
 import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import SocialSharingButtons from "@/components/SocialSharingButtons";
+import PostCard from "@/components/blog/PostCard";
+import SEOHead from "@/components/SEOHead";
 
 type Props = {
   post: Post;
+  relatedPosts: PostMeta[];
 };
 
-export default function PostPage({ post }: Props) {
+export default function PostPage({ post, relatedPosts }: Props) {
   const { language } = useLanguage();
   const isRTL = language === "ar";
+  const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   return (
     <>
@@ -18,6 +28,12 @@ export default function PostPage({ post }: Props) {
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
       </Head>
+      <SEOHead
+        title={post.title}
+        description={post.description}
+        ogType="article"
+        ogImage={post.image}
+      />
 
       <div className="min-h-screen">
         <Header />
@@ -55,8 +71,28 @@ export default function PostPage({ post }: Props) {
                 dir={isRTL ? "rtl" : "ltr"}
                 dangerouslySetInnerHTML={{ __html: post.contentHtml }}
               />
+
+              <SocialSharingButtons url={url} title={post.title} />
             </div>
           </section>
+
+          {relatedPosts && relatedPosts.length > 0 && (
+            <section className="section-padding bg-muted/30">
+              <div className="container-custom">
+                <h2 
+                  className="text-2xl font-bold mb-8 text-center"
+                  dir={isRTL ? "rtl" : "ltr"}
+                >
+                  {isRTL ? "مقالات ذات صلة" : "Related Articles"}
+                </h2>
+                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {relatedPosts.map(rp => (
+                    <PostCard key={rp.slug} post={rp} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
         </main>
 
         <Footer />
@@ -80,8 +116,13 @@ export async function getStaticPaths() {
 // ===== props =====
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug);
+  const allPosts = getAllPosts();
+  
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== params.slug)
+    .slice(0, 2);
 
   return {
-    props: { post },
+    props: { post, relatedPosts },
   };
 }

@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
+import { SITE_URL } from "@/lib/i18n";
 
 const Testimonials = () => {
   const { t, language } = useLanguage();
@@ -55,28 +57,15 @@ const Testimonials = () => {
   return (
     <>
       <Head>
-        <title>{t("testimonials.meta.title")} , 2</title>
+        <title>{t("testimonials.meta.title")}</title>
         <meta name="description" content={t("testimonials.meta.description")} />
-
-        {/* Open Graph / Social Media Tags */}
-        <meta property="og:title" content={t("testimonials.meta.title")} />
-        <meta
-          property="og:description"
-          content={t("testimonials.meta.description")}
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:locale"
-          content={language === "ar" ? "ar_AR" : "en_US"}
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:title" content={t("testimonials.meta.title")} />
-        <meta
-          name="twitter:description"
-          content={t("testimonials.meta.description")}
-        />
+        <meta property="og:locale" content={language === "ar" ? "ar_AR" : "en_US"} />
       </Head>
+      <SEOHead
+        title={t("testimonials.meta.title")}
+        description={t("testimonials.meta.description")}
+        ogImage={`${SITE_URL}/assets/targetlogo.webp`}
+      />
 
       <div className="min-h-screen">
         <Header />

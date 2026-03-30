@@ -3,16 +3,23 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Head from "next/head";
 import { useLanguage } from "@/context/LanguageContext";
+import SEOHead from "@/components/SEOHead";
+import { SITE_URL } from "@/lib/i18n";
 const Contact = () => {
   const { t, language } = useLanguage();
   const isRTL = language === "ar";
   return (
     <div className="min-h-screen">
-      {/* SEO */}
       <Head>
         <title>{t("contact.meta.title")}</title>
         <meta name="description" content={t("contact.meta.description")} />
+        <meta property="og:locale" content={language === "ar" ? "ar_AR" : "en_US"} />
       </Head>
+      <SEOHead
+        title={t("contact.meta.title")}
+        description={t("contact.meta.description")}
+        ogImage={`${SITE_URL}/assets/targetlogo.webp`}
+      />
 
       <Header />
 

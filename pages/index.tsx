@@ -11,33 +11,41 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
 import Image from "next/image";
+import SEOHead from "@/components/SEOHead";
+import { localizeHref, SITE_URL } from "@/lib/i18n";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Index = () => {
+  const router = useRouter();
   const { t, language } = useLanguage();
   const isRTL = language === "ar";
-  
+  const L = (href: string) => localizeHref(href, language);
+
+  // Smart redirect: only redirect "/" to "/ar/" on FIRST visit (no saved preference).
+  // If user previously chose English, stay on "/" (English home).
+  useEffect(() => {
+    const path = router.asPath.split("?")[0].split("#")[0];
+    if (path === "/" || path === "/index") {
+      const savedLang = localStorage.getItem("language");
+      if (!savedLang || savedLang === "ar") {
+        router.replace("/ar/");
+      }
+    }
+  }, [router.asPath]);
+
   return (
     <>
       <Head>
-        {/* Title */}
         <title>{t("home.meta.title")}</title>
-
-        {/* Description */}
         <meta name="description" content={t("home.meta.description")} />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:locale"
-          content={language === "ar" ? "ar_AR" : "en_US"}
-        />
-        <meta property="og:title" content={t("home.meta.title")} />
-        <meta property="og:description" content={t("home.meta.description")} />
-
-        {/* Twitter */}
-        <meta name="twitter:title" content={t("home.meta.title")} />
-        <meta name="twitter:description" content={t("home.meta.description")} />
+        <meta property="og:locale" content={language === "ar" ? "ar_AR" : "en_US"} />
       </Head>
+      <SEOHead
+        title={t("home.meta.title")}
+        description={t("home.meta.description")}
+        ogImage={`${SITE_URL}/assets/targetlogo.webp`}
+      />
 
       <div className="min-h-screen">
         <Header />
@@ -56,7 +64,7 @@ const Index = () => {
                   <p className="text-lg text-muted-foreground mb-6">
                     {t("about.description1")}
                   </p>
-                  <Link href="/about">
+                  <Link href={L("/about")}>
                     <Button size="lg" variant="outline">
                       {t("about.readMore")}
                     </Button>
@@ -133,7 +141,7 @@ const Index = () => {
               </div>
 
               <div className="text-center">
-                <Link href="/services">
+                <Link href={L("/services")}>
                   <Button size="lg">{t("services.viewAll")}</Button>
                 </Link>
               </div>
@@ -206,7 +214,7 @@ const Index = () => {
               </div>
 
               <div className="text-center">
-                <Link href="/testimonials">
+                <Link href={L("/testimonials")}>
                   <Button size="lg" variant="outline">
                     {t("testimonials.viewAll")}
                   </Button>
@@ -221,7 +229,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 {t("cta.title")}
               </h2>
-              <Link href="/contact">
+              <Link href={L("/contact")}>
                 <Button
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
