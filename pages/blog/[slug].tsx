@@ -4,7 +4,7 @@ import { getAllPosts, getPostBySlug, Post, PostMeta } from "@/lib/blog";
 import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import SocialSharingButtons from "@/components/SocialSharingButtons";
+import SocialSharingButtons from "../../components/SocialSharingButtons";
 import PostCard from "@/components/blog/PostCard";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import { useRouter } from "next/router";
@@ -22,10 +22,11 @@ export default function PostPage({ post, relatedPosts }: Props) {
   // --- TRANSLATION HANDLING ---
   // Detect current language from global context.
   // Fallback to Arabic if the specified translation is missing.
-  const translation = post.translations?.[language] || post.translations?.ar || {
-    title: post.title,
-    description: post.description
-  };
+  const translation = post.translations?.[language] ||
+    post.translations?.ar || {
+      title: post.title,
+      description: post.description,
+    };
 
   const displayTitle = translation.title;
   const displayDescription = translation.description;
@@ -38,28 +39,28 @@ export default function PostPage({ post, relatedPosts }: Props) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": displayTitle,
-    "description": displayDescription,
-    "image": post.image ? `${SITE_URL}${post.image}` : undefined,
-    "datePublished": post.date,
-    "author": {
+    headline: displayTitle,
+    description: displayDescription,
+    image: post.image ? `${SITE_URL}${post.image}` : undefined,
+    datePublished: post.date,
+    author: {
       "@type": "Organization",
-      "name": "Target Hotel Marketing",
-      "url": SITE_URL
+      name: "Target Hotel Marketing",
+      url: SITE_URL,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Target Hotel Marketing",
-      "logo": {
+      name: "Target Hotel Marketing",
+      logo: {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/targetlogo.png`
-      }
+        url: `${SITE_URL}/targetlogo.png`,
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}${router.asPath}`
+      "@id": `${SITE_URL}${router.asPath}`,
     },
-    "inLanguage": language
+    inLanguage: language,
   };
 
   return (
@@ -93,9 +94,7 @@ export default function PostPage({ post, relatedPosts }: Props) {
               </h1>
 
               {/* Date */}
-              <p className="text-muted-foreground mb-6">
-                {post.date}
-              </p>
+              <p className="text-muted-foreground mb-6">{post.date}</p>
 
               {/* Image */}
               {post.image && (
@@ -110,8 +109,11 @@ export default function PostPage({ post, relatedPosts }: Props) {
               {/* Select the correct multilingual section based on current language */}
               <div
                 className="prose max-w-none article-content"
-                dangerouslySetInnerHTML={{ 
-                  __html: (language === "ar" ? post.contentHtmlAr : post.contentHtmlEn) || post.contentHtml 
+                dangerouslySetInnerHTML={{
+                  __html:
+                    (language === "ar"
+                      ? post.contentHtmlAr
+                      : post.contentHtmlEn) || post.contentHtml,
                 }}
               />
 
@@ -126,7 +128,7 @@ export default function PostPage({ post, relatedPosts }: Props) {
                   {isRTL ? "مقالات ذات صلة" : "Related Articles"}
                 </h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  {relatedPosts.map(rp => (
+                  {relatedPosts.map((rp) => (
                     <PostCard key={rp.slug} post={rp} />
                   ))}
                 </div>
@@ -157,7 +159,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug);
   const allPosts = getAllPosts();
-  
+
   const relatedPosts = allPosts
     .filter((p) => p.slug !== params.slug)
     .slice(0, 2);
