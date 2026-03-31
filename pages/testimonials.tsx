@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ExportedImage from "next-image-export-optimizer";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageLightbox from "@/components/ImageLightbox";
@@ -130,12 +131,16 @@ const Testimonials = () => {
                     {t("testimonials.letterDescription")}
                   </p>
                   <div className="mt-6 p-8 bg-muted/50 rounded-lg">
-                    <img
-                      src={lavina.src}
-                      alt="Sample Appreciation Letter"
-                      className="max-w-full md:max-w-md mx-auto rounded shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300"
-                      onClick={() => setLightboxOpen(true)}
-                    />
+                    <div className="max-w-full md:max-w-lg mx-auto relative h-[400px] cursor-pointer" onClick={() => setLightboxOpen(true)}>
+                      <ExportedImage
+                        src={lavina}
+                        alt="Sample Appreciation Letter"
+                        className="rounded shadow-lg hover:shadow-xl transition-shadow duration-300 object-contain"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 500px"
+                        placeholder="blur"
+                      />
+                    </div>
                     <p className="text-sm text-muted-foreground mt-4">
                       {t("testimonials.sampleLetter")}
                     </p>

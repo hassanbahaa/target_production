@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import targetLogo from "../public/assets/targetlogo.webp";
+import ExportedImage from "next-image-export-optimizer";
+import targetLogo from "../public/assets/targetlogo.png";
 import PlatformsSection from "@/components/PlatformsSection";
 import ClientsSection from "@/components/ClientsSection";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
-import Image from "next/image";
 import SEOHead from "@/components/SEOHead";
 import { localizeHref, SITE_URL } from "@/lib/i18n";
 import { useRouter } from "next/router";
@@ -71,10 +71,12 @@ const Index = () => {
                   </Link>
                 </div>
                 <div className="relative h-96 rounded-lg overflow-hidden shadow-lg flex items-center justify-center bg-gray-100">
-                  <Image
+                  <ExportedImage
                     src={targetLogo}
                     alt="About Us"
                     className="max-w-full max-h-full object-contain object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    placeholder="blur"
                   />
                 </div>
               </div>

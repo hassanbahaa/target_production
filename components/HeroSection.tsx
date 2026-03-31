@@ -1,8 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import heroImage from "../public/assets/hero-hotel.webp";
+import heroImage from "../public/assets/hero-hotel.jpg";
 import { useLanguage } from "@/context/LanguageContext";
+import ExportedImage from "next-image-export-optimizer";
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
@@ -21,10 +22,15 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url("hero-hotel.jpg")` }}
-      >
+      <div className="absolute inset-0 z-0">
+        <ExportedImage
+          src={heroImage}
+          alt="Hero Background"
+          fill
+          priority
+          placeholder="blur"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
       </div>
 

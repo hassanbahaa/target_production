@@ -1,8 +1,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ExportedImage from "next-image-export-optimizer";
 import { Users, Target, Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import targetLogo from "../public/assets/targetlogo.webp";
+import targetLogo from "../public/assets/targetlogo.png";
 import Head from "next/head";
 import { useLanguage } from "@/context/LanguageContext";
 import SEOHead from "@/components/SEOHead";
@@ -59,10 +60,12 @@ const About = () => {
                   </p>
                 </div>
                 <div className="relative h-96 rounded-lg overflow-hidden shadow-lg flex items-center justify-center bg-gray-100">
-                  <img
-                    src={targetLogo.src}
+                  <ExportedImage
+                    src={targetLogo}
                     alt="Our Story"
                     className="max-w-full max-h-full object-contain object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    placeholder="blur"
                   />
                 </div>
               </div>

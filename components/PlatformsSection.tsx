@@ -17,7 +17,7 @@ import vrboLogo from "../public/assets/websites/vrbo.webp";
 import rehlatLogo from "../public/assets/websites/rehlat.webp";
 
 import AutoScroll from "embla-carousel-auto-scroll";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const platforms = [
   { name: "Booking.com", logo: bookingLogo },
@@ -70,13 +70,12 @@ const PlatformsSection = () => {
               >
                 <div className="flex items-center justify-center p-4">
                   <div className="platform-circle group overflow-hidden">
-                    <Image
+                    <ExportedImage
                       src={platform.logo}
                       alt={platform.name}
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = "/placeholder.svg";
-                      }}
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                      placeholder="blur"
                     />
                   </div>
                 </div>

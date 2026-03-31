@@ -20,7 +20,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
 const translations = {
@@ -190,7 +190,7 @@ const translations = {
       "شريكك الموثوق في التسويق الفندقي والإدارة الاحترافية",
     "footer.quickLinks": "روابط سريعة",
     "footer.contact": "اتصل بنا",
-    "footer.rights": "© 2026 تارجت للتسويق الفندقي. جميع الحقوق محفوظة.",
+    "footer.rights": `© 2024 - ${new Date().getFullYear()} تارجت للتسويق الفندقي. جميع الحقوق محفوظة.`,
     "footer.followUs": "تابعنا",
 
     // Contact Page
@@ -383,7 +383,7 @@ const translations = {
       "Your trusted partner in hotel marketing and professional management",
     "footer.quickLinks": "Quick Links",
     "footer.contact": "Contact Us",
-    "footer.rights": "© 2026 Target Hotel Marketing. All rights reserved.",
+    "footer.rights": `© 2024 - ${new Date().getFullYear()} Target Hotel Marketing. All rights reserved.`,
     "footer.followUs": "Follow Us",
 
     // Contact Page

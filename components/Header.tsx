@@ -7,7 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useLanguage } from "../context/LanguageContext";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import targetLogo from "../public/assets/targetlogo.png";
 import { localizeHref } from "@/lib/i18n";
 
@@ -31,10 +31,12 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href={L("/")} className="flex items-center gap-3 group">
-            <Image
+            <ExportedImage
               src={targetLogo}
               alt="Target Hotel Marketing Logo"
               className="h-12 w-auto object-contain transition-all duration-300 group-hover:opacity-80 group-hover:scale-105"
+              priority
+              sizes="150px"
             />
             <div className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
               Target Hotel Marketing

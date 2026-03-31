@@ -1,5 +1,6 @@
 "use client";
 
+import ExportedImage from "next-image-export-optimizer";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 
@@ -55,10 +56,13 @@ const ImageLightbox = ({ src, alt, isOpen, onClose }: ImageLightboxProps) => {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <img
+        <ExportedImage
           src={src}
           alt={alt}
-          className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+          className="object-contain rounded-lg shadow-2xl"
+          width={1200}
+          height={800}
+          sizes="90vw"
         />
       </div>
     </div>

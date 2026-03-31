@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PostMeta } from "@/lib/blog";
 import { useLanguage } from "@/context/LanguageContext";
 import { localizeHref } from "@/lib/i18n";
+import ExportedImage from "next-image-export-optimizer";
 
 interface PostCardProps {
   post: PostMeta;
@@ -24,11 +25,15 @@ export default function PostCard({ post }: PostCardProps) {
       <Card className="card-hover h-full transition-shadow duration-300">
         <CardContent className="p-6 flex flex-col h-full">
           {post.image ? (
-            <img
-              src={post.image}
-              alt={displayTitle}
-              className="rounded-lg mb-4 w-full h-48 object-cover group-hover:opacity-90 transition-opacity"
-            />
+            <div className="relative w-full h-48 mb-4">
+              <ExportedImage
+                src={post.image}
+                alt={displayTitle}
+                className="rounded-lg object-cover group-hover:opacity-90 transition-opacity"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
+              />
+            </div>
           ) : (
             <div className="rounded-lg mb-4 w-full h-48 bg-muted/50 flex items-center justify-center">
               <span className="text-muted-foreground">{displayTitle}</span>

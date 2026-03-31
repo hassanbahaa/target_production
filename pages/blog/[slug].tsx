@@ -5,6 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import SocialSharingButtons from "../../components/SocialSharingButtons";
+import ExportedImage from "next-image-export-optimizer";
 import PostCard from "@/components/blog/PostCard";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import { useRouter } from "next/router";
@@ -98,11 +99,16 @@ export default function PostPage({ post, relatedPosts }: Props) {
 
               {/* Image */}
               {post.image && (
-                <img
-                  src={post.image}
-                  className="rounded-lg mb-6 w-full max-h-[400px] object-cover"
-                  alt={displayTitle}
-                />
+                <div className="relative w-full h-[400px] mb-6">
+                  <ExportedImage
+                    src={post.image}
+                    className="rounded-lg object-cover"
+                    alt={displayTitle}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 800px"
+                  />
+                </div>
               )}
 
               {/* --- CONTENT RENDERING --- */}
