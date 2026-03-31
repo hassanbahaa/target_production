@@ -2,7 +2,7 @@
 title: "كيف تحول زوار موقع فندقك إلى حجوزات مؤكدة: دليل تحسين معدل التحويل (CRO)"
 date: "2026-03-30"
 description: "تعرف على استراتيجيات تحسين معدل التحويل (CRO) لمواقع الفنادق لتحويل الزوار إلى عملاء وحجوزات مؤكدة من خلال تصميم وتجربة مستخدم فعالة."
-image: "/images/blogs/hotel-conversion-rate-optimization.jpg"
+image: "/images/blogs/hotel-conversion-rate-optimization.webp"
 translations:
   en:
     title: "How to Turn Hotel Website Visitors into Bookings: A CRO Guide"

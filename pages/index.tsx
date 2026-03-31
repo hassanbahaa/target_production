@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import ExportedImage from "next-image-export-optimizer";
-import targetLogo from "../public/assets/targetlogo.png";
+import targetLogo from "../public/assets/targetlogo.webp";
 import PlatformsSection from "@/components/PlatformsSection";
 import ClientsSection from "@/components/ClientsSection";
 import { Card, CardContent } from "@/components/ui/card";

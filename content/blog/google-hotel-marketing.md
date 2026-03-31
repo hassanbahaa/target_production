@@ -2,7 +2,7 @@
 title: "كيفية زيادة حجوزات الفنادق من Google: دليل شامل لزيادة الظهور على Google Maps وGoogle Hotel Ads"
 date: "2026-03-30"
 description: "تعلم كيف تزيد حجوزات فندقك من Google باستخدام Google Maps وGoogle Hotel Ads وتحسين الظهور في نتائج البحث لزيادة الزيارات والحجوزات المباشرة."
-image: "/images/blogs/google-hotel-marketing.jpg"
+image: "/images/blogs/google-hotel-marketing.webp"
 translations:
   ar:
     title: "كيفية زيادة حجوزات الفنادق من Google: دليل شامل لزيادة الظهور على Google Maps وGoogle Hotel Ads"

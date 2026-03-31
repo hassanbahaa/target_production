@@ -2,7 +2,7 @@
 title: "Booking vs Expedia vs Agoda: أي منصة أفضل لزيادة حجوزات الفنادق في السعودية؟"
 date: "2026-03-30"
 description: "مقارنة شاملة بين Booking و Expedia و Agoda لمساعدة الفنادق في السعودية على اختيار أفضل منصة لزيادة الحجوزات، تحسين الظهور، وزيادة الإيرادات في ظل المنافسة."
-image: "/images/blogs/booking-vs-expedia-vs-agoda.jpg"
+image: "/images/blogs/booking-vs-expedia-vs-agoda.webp"
 translations:
   ar:
     title: "Booking vs Expedia vs Agoda: أي منصة أفضل لزيادة حجوزات الفنادق في السعودية؟"

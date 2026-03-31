@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useLanguage } from "../context/LanguageContext";
 import ExportedImage from "next-image-export-optimizer";
-import targetLogo from "../public/assets/targetlogo.png";
+import targetLogo from "../public/assets/targetlogo.webp";
 import { localizeHref } from "@/lib/i18n";
 
 const Header = () => {

@@ -2,7 +2,7 @@
 title: "إدارة السمعة الرقمية للفنادق السعودية: كيف تتعامل مع التقييمات السلبية على Booking.com وGoogle"
 date: "2026-03-28"
 description: "دليل شامل لإدارة السمعة الرقمية للفنادق في المملكة. تعلم كيفية الرد على التقييمات السلبية على Booking وGoogle، مراقبة المراجعات، وتحويل الشكاوى إلى فرص لزيادة الثقة والحجوزات في ظل رؤية 2030."
-image: "/images/blogs/hotel-online-reputation-management-saudi.jpg"
+image: "/images/blogs/hotel-online-reputation-management-saudi.webp"
 translations:
   ar:
     title: "إدارة السمعة الرقمية للفنادق السعودية: كيف تتعامل مع التقييمات السلبية على Booking.com وGoogle"

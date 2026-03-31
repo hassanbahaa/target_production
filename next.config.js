@@ -15,7 +15,7 @@ const nextConfig = {
     nextImageExportOptimizer_quality: "90",
     nextImageExportOptimizer_storePicturesInWEBP: "true",
     nextImageExportOptimizer_exportFolderPath: "out",
-    nextImageExportOptimizer_generateAndUseAVIF: "true",
+    nextImageExportOptimizer_generateAndUseAVIF: "false",
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },
 };

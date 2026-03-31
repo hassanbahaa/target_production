@@ -3,7 +3,7 @@ import ExportedImage from "next-image-export-optimizer";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageLightbox from "@/components/ImageLightbox";
-import lavina from "../public/assets/Testimonials/lavina.jpg";
+import lavina from "../public/assets/Testimonials/lavina.webp";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";

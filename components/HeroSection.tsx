@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import heroImage from "../public/assets/hero-hotel.jpg";
+import heroImage from "../public/assets/hero-hotel.webp";
 import { useLanguage } from "@/context/LanguageContext";
 import ExportedImage from "next-image-export-optimizer";
 

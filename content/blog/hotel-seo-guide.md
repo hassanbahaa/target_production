@@ -2,7 +2,7 @@
 title: "إزاي تخلي فندقك يظهر في أول نتائج Google: دليل SEO للفنادق"
 date: "2026-03-30"
 description: "تعلم كيفية تحسين ظهور فندقك في نتائج البحث على Google باستخدام استراتيجيات SEO متقدمة لزيادة الترافيك المباشر والحجوزات بدون الاعتماد على OTAs."
-image: "/images/blogs/hotel-seo-guide.jpg"
+image: "/images/blogs/hotel-seo-guide.webp"
 translations:
   en:
     title: "How to Rank Your Hotel on Google: A Complete SEO Guide"

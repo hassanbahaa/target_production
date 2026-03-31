@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import ExportedImage from "next-image-export-optimizer";
 import { Users, Target, Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import targetLogo from "../public/assets/targetlogo.png";
+import targetLogo from "../public/assets/targetlogo.webp";
 import Head from "next/head";
 import { useLanguage } from "@/context/LanguageContext";
 import SEOHead from "@/components/SEOHead";

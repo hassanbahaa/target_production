@@ -54,7 +54,7 @@ export default function PostPage({ post, relatedPosts }: Props) {
       name: "Target Hotel Marketing",
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/targetlogo.png`,
+        url: `${SITE_URL}/assets/targetlogo.webp`,
       },
     },
     mainEntityOfPage: {

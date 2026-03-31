@@ -2,7 +2,7 @@
 title: "إزاي تزود التقييمات الإيجابية لفندقك على Booking وGoogle وتكسب ثقة العملاء"
 date: "2026-03-30"
 description: "تعرف على أفضل استراتيجيات زيادة التقييمات الإيجابية للفنادق على Booking.com وGoogle، وكيفية تحويل تجربة الضيف إلى تقييمات قوية تعزز الثقة وترفع الحجوزات."
-image: "/images/blogs/hotel-reviews-strategy.jpg"
+image: "/images/blogs/hotel-reviews-strategy.webp"
 translations:
   en:
     title: "How to Increase Positive Hotel Reviews on Booking and Google"

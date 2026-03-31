@@ -2,7 +2,7 @@
 title: "أفضل طرق زيادة حجوزات الفندق على Booking في 2026 (دليل عملي للفنادق السعودية)"
 date: "2026-03-30"
 description: "دليل عملي لزيادة حجوزات فندقك على Booking في السعودية. تعلم تحسين صفحة الفندق، إدارة التقييمات، التسعير الذكي، واستخدام أدوات Booking لرفع الإشغال والإيرادات."
-image: "/images/blogs/increase-booking-reservations-saudi.jpg"
+image: "/images/blogs/increase-booking-reservations-saudi.webp"
 translations:
   ar:
     title: "أفضل طرق زيادة حجوزات الفندق على Booking في 2026 (دليل عملي للفنادق السعودية)"

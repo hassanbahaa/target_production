@@ -2,7 +2,7 @@
 title: "دليل Google My Business للفنادق: إزاي تزود الحجوزات وتظهر في نتائج البحث المحلية"
 date: "2026-03-30"
 description: "تعرف على كيفية استخدام Google My Business لزيادة ظهور فندقك في نتائج البحث المحلية، وجذب المزيد من العملاء، وتحقيق حجوزات مباشرة بدون عمولات."
-image: "/images/blogs/google-my-business-hotel.jpg"
+image: "/images/blogs/google-my-business-hotel.webp"
 translations:
   en:
     title: "Google My Business Guide for Hotels: Increase Visibility and Bookings"

@@ -2,7 +2,7 @@
 title: "الفرق بين الحجوزات المباشرة والحجوزات عبر OTAs: أيهما أفضل لزيادة أرباح الفندق؟"
 date: "2026-03-30"
 description: "تعرف على الفرق بين الحجوزات المباشرة والحجوزات عبر منصات OTAs مثل Booking وExpedia، وأيهم أفضل لزيادة أرباح الفندق وتقليل العمولات وتحقيق نمو مستدام."
-image: "/images/blogs/direct-vs-ota-bookings.jpg"
+image: "/images/blogs/direct-vs-ota-bookings.webp"
 translations:
   ar:
     title: "الفرق بين الحجوزات المباشرة والحجوزات عبر OTAs: أيهما أفضل لزيادة أرباح الفندق؟"

@@ -2,7 +2,7 @@
 title: "إزاي تعمل استراتيجية تسعير ذكية للفندق (Revenue Management) وتزود الأرباح"
 date: "2026-03-30"
 description: "تعلم كيفية تطبيق استراتيجية تسعير ديناميكية للفنادق لزيادة الأرباح، وتحسين الإشغال، ومواكبة الطلب في السوق السياحي باستخدام أساليب إدارة الإيرادات."
-image: "/images/blogs/revenue-management-hotel.jpg"
+image: "/images/blogs/revenue-management-hotel.webp"
 translations:
   en:
     title: "How to Build a Smart Hotel Pricing Strategy (Revenue Management)"

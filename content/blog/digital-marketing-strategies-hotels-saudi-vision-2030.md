@@ -2,7 +2,7 @@
 title: "استراتيجيات التسويق الرقمي الفعالة للفنادق السعودية في ظل رؤية 2030"
 date: "2026-03-28"
 description: "اكتشف أقوى استراتيجيات التسويق الرقمي للفنادق في السعودية 2026 لزيادة الحجوزات المباشرة وتحقيق أهداف رؤية 2030. دليل عملي يشمل SEO، السوشيال ميديا، والتسويق بالمحتوى لرفع الإشغال والإيرادات."
-image: "/images/blogs/digital-marketing-strategies-hotels-saudi-vision-2030.jpg"
+image: "/images/blogs/digital-marketing-strategies-hotels-saudi-vision-2030.webp"
 translations:
   ar:
     title: "استراتيجيات التسويق الرقمي الفعالة للفنادق السعودية في ظل رؤية 2030"

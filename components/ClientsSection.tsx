@@ -49,7 +49,7 @@ const ClientsSection = () => {
                   <div className="flex flex-col items-center text-center group transition-all">
                     <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto overflow-hidden rounded-xl shadow-md">
                       <ExportedImage
-                        src={`/hotels/${hotel.id}.jpg`}
+                        src={`/hotels/${hotel.id}.webp`}
                         alt={isRTL ? hotel.name : hotel.nameEn}
                         className="w-full h-full object-cover object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                         fill
