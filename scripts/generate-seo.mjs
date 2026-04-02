@@ -88,6 +88,11 @@ async function generateRobots() {
 User-agent: *
 Allow: /
 
+# Priority limits for Bingbot
+User-agent: Bingbot
+Crawl-delay: 1
+Allow: /
+
 # Sitemap location
 Sitemap: ${SITE_URL}/sitemap.xml
 
@@ -104,3 +109,23 @@ Disallow: /api/
 // Run the generators
 generateSitemap();
 generateRobots();
+
+async function pingIndexNow() {
+  console.log('Configuring IndexNow...');
+  // Ensure the IndexNow key is exactly 32 hex characters to avoid strict validation errors
+  const key = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6';
+  fs.writeFileSync(path.join(PUBLIC_DIR, `${key}.txt`), key);
+
+  try {
+    const res = await fetch(`https://api.indexnow.org/indexnow?url=${SITE_URL}&key=${key}`);
+    if (res.ok) {
+      console.log('Successfully pinged IndexNow API.');
+    } else {
+      console.log('IndexNow API responded with:', res.status);
+    }
+  } catch (e) {
+    console.error('Failed to ping IndexNow API:', e);
+  }
+}
+
+pingIndexNow();

@@ -159,7 +159,7 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <Button type="submit" className="btn-primary w-full">
+                <Button type="submit" className="btn-primary w-full" aria-label="Send Message">
                   إرسال / Send
                 </Button>
               </form>
@@ -181,6 +181,7 @@ const ContactSection = () => {
                   <a
                     href="mailto:targethotelmarketing@gmail.com"
                     className="text-primary hover:underline"
+                    aria-label="Email targethotelmarketing@gmail.com"
                   >
                     targethotelmarketing@gmail.com
                   </a>
@@ -188,6 +189,7 @@ const ContactSection = () => {
                   <a
                     href="mailto:info@targethotelmarketing.com"
                     className="text-primary hover:underline"
+                    aria-label="Email info@targethotelmarketing.com"
                   >
                     info@targethotelmarketing.com
                   </a>
@@ -208,6 +210,7 @@ const ContactSection = () => {
                   <a
                     href="tel:+966576351714"
                     className="text-primary hover:underline"
+                    aria-label="Call +966 57 635 1714"
                   >
                     +966 57 635 1714
                   </a>
@@ -215,6 +218,7 @@ const ContactSection = () => {
                   <a
                     href="tel:+201091611267"
                     className="text-primary hover:underline"
+                    aria-label="Call +20 10 916 11267"
                   >
                     +20 10 916 11267
                   </a>

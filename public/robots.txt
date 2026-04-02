@@ -4,6 +4,11 @@
 User-agent: *
 Allow: /
 
+# Priority limits for Bingbot
+User-agent: Bingbot
+Crawl-delay: 1
+Allow: /
+
 # Sitemap location
 Sitemap: https://targethotelmarketing.com/sitemap.xml
 

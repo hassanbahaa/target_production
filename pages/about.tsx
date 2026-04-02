@@ -64,6 +64,7 @@ const About = () => {
                     src={targetLogo}
                     alt="Our Story"
                     className="max-w-full max-h-full object-contain object-center"
+                    fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     placeholder="blur"
                   />

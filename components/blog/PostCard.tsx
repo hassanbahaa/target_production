@@ -21,7 +21,7 @@ export default function PostCard({ post }: PostCardProps) {
   const displayDescription = post.translations?.[language]?.description || post.translations?.ar?.description || post.description;
 
   return (
-    <Link href={localizeHref(`/blog/${post.slug}`, language)} className="group h-full block">
+    <Link href={localizeHref(`/blog/${post.slug}`, language)} className="group h-full block" aria-label={`Read full article: ${displayTitle}`}>
       <Card className="card-hover h-full transition-shadow duration-300">
         <CardContent className="p-6 flex flex-col h-full">
           {post.image ? (
@@ -48,7 +48,7 @@ export default function PostCard({ post }: PostCardProps) {
             {displayDescription}
           </p>
 
-          <Button variant="outline" size="sm" className="w-fit mt-auto">
+          <Button variant="outline" size="sm" className="w-fit mt-auto" aria-label={`Read more about ${displayTitle}`}>
             {language === "ar" ? "اقرأ المزيد" : "Read More"}
           </Button>
         </CardContent>

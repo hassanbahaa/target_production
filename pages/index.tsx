@@ -64,8 +64,8 @@ const Index = () => {
                   <p className="text-lg text-muted-foreground mb-6">
                     {t("about.description1")}
                   </p>
-                  <Link href={L("/about")}>
-                    <Button size="lg" variant="outline">
+                  <Link href={L("/about")} aria-label="Read more about Target Hotel Marketing">
+                    <Button size="lg" variant="outline" aria-label="Read More About Us">
                       {t("about.readMore")}
                     </Button>
                   </Link>
@@ -75,6 +75,7 @@ const Index = () => {
                     src={targetLogo}
                     alt="About Us"
                     className="max-w-full max-h-full object-contain object-center"
+                    fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     placeholder="blur"
                   />
@@ -143,8 +144,8 @@ const Index = () => {
               </div>
 
               <div className="text-center">
-                <Link href={L("/services")}>
-                  <Button size="lg">{t("services.viewAll")}</Button>
+                <Link href={L("/services")} aria-label="View all our services">
+                  <Button size="lg" aria-label="View All Services">{t("services.viewAll")}</Button>
                 </Link>
               </div>
             </div>
@@ -216,8 +217,8 @@ const Index = () => {
               </div>
 
               <div className="text-center">
-                <Link href={L("/testimonials")}>
-                  <Button size="lg" variant="outline">
+                <Link href={L("/testimonials")} aria-label="View all client testimonials">
+                  <Button size="lg" variant="outline" aria-label="View All Testimonials">
                     {t("testimonials.viewAll")}
                   </Button>
                 </Link>
@@ -231,10 +232,11 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 {t("cta.title")}
               </h2>
-              <Link href={L("/contact")}>
+              <Link href={L("/contact")} aria-label="Navigate to contact form page">
                 <Button
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                  aria-label="Contact Us button"
                 >
                   {t("cta.button")}
                 </Button>

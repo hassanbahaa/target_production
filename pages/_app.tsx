@@ -24,43 +24,45 @@ export default function App({ Component, pageProps }: AppProps) {
           <Sonner />
           <ScrollToTop />
 
-          {/* ===== GLOBAL SEO DEFAULTS (EDIT HERE) ===== */}
-          {/* These tags apply to every page. Page-level <Head> tags will override them. */}
-            {/* TODO: Replace https://www.targethotelmarketing.com with your actual domain if different */}
+            {/* ===== GLOBAL SEO DEFAULTS (EDIT HERE) ===== */}
+            {/* These tags apply to every page. Page-level <Head> tags will override them. */}
             <Head>
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
               <meta charSet="utf-8" />
+              <meta name="theme-color" content="#ffffff" />
               <link rel="icon" href="/favicon.ico" />
+              <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+              <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';" />
               {/* Default OG site name */}
               <meta property="og:site_name" content="Target Hotel Marketing" />
+              <meta name="robots" content="index, follow" />
             </Head>
 
             {/* ===== SCHEMA MARKUP (EDIT HERE) ===== */}
-            {/* JSON-LD Organization schema for search engine knowledge panels */}
-            {/* TODO: Edit name, url, logo, and social links below */}
+            {/* JSON-LD Organization & LocalBusiness schema for search engine knowledge panels */}
             <Head>
               <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                   __html: JSON.stringify({
                     "@context": "https://schema.org",
-                    "@type": "Organization",
+                    "@type": ["Organization", "LocalBusiness"],
                     name: "Target Hotel Marketing",
                     url: "https://www.targethotelmarketing.com",
                     logo: "https://www.targethotelmarketing.com/assets/targetlogo.webp",
-                    description:
-                      "Professional hotel management, marketing, and digital solutions.",
-                    sameAs: [
-                      // TODO: Add your social media profile URLs here
-                      // "https://www.facebook.com/your-page",
-                      // "https://twitter.com/your-handle",
-                      // "https://www.linkedin.com/company/your-company",
-                    ],
+                    image: "https://www.targethotelmarketing.com/assets/targetlogo.webp",
+                    description: "Professional hotel management, marketing, and digital solutions providing unparalleled hospitality strategies.",
+                    sameAs: [],
+                    address: {
+                      "@type": "PostalAddress",
+                      addressCountry: "SA",
+                    },
                     contactPoint: {
                       "@type": "ContactPoint",
-                      // TODO: Replace with your actual contact info
                       telephone: "+1-000-000-0000",
                       contactType: "customer service",
+                      areaServed: "SA",
+                      availableLanguage: ["English", "Arabic"]
                     },
                   }),
                 }}

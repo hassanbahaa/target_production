@@ -27,7 +27,7 @@ yarn-error.log*
 
 # vercel
 .vercel
-
+seo updates walkthrough.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts

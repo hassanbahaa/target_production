@@ -30,7 +30,7 @@ const Header = () => {
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href={L("/")} className="flex items-center gap-3 group">
+          <Link href={L("/")} className="flex items-center gap-3 group" aria-label="Target Hotel Marketing Home">
             <ExportedImage
               src={targetLogo}
               alt="Target Hotel Marketing Logo"
@@ -47,6 +47,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link
               href={L("/")}
+              aria-label="Navigate to Home Page"
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/") ? "text-primary font-semibold" : ""
               }`}
@@ -55,6 +56,7 @@ const Header = () => {
             </Link>
             <Link
               href={L("/about")}
+              aria-label="Navigate to About Us Page"
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/about") ? "text-primary font-semibold" : ""
               }`}
@@ -63,6 +65,7 @@ const Header = () => {
             </Link>
             <Link
               href={L("/services")}
+              aria-label="Navigate to Services Page"
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/services") ? "text-primary font-semibold" : ""
               }`}
@@ -71,6 +74,7 @@ const Header = () => {
             </Link>
             <Link
               href={L("/testimonials")}
+              aria-label="Navigate to Testimonials Page"
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/testimonials") ? "text-primary font-semibold" : ""
               }`}
@@ -79,6 +83,7 @@ const Header = () => {
             </Link>
             <Link
               href={L("/blog")}
+              aria-label="Navigate to Blog Page"
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/blog") ? "text-primary font-semibold" : ""
               }`}
@@ -87,6 +92,7 @@ const Header = () => {
             </Link>
             <Link
               href={L("/contact")}
+              aria-label="Navigate to Contact Page"
               className={`text-foreground hover:text-primary transition-colors ${
                 isActive("/contact") ? "text-primary font-semibold" : ""
               }`}
@@ -107,8 +113,8 @@ const Header = () => {
                 {language === "ar" ? "EN" : "عربي"}
               </span>
             </button>
-            <Link href={L("/contact")}>
-              <Button className="btn-primary">{t("nav.cta")}</Button>
+            <Link href={L("/contact")} aria-label="Go to Contact Page">
+              <Button className="btn-primary" aria-label="Contact Us">{t("nav.cta")}</Button>
             </Link>
           </div>
 
@@ -127,8 +133,9 @@ const Header = () => {
             <button
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle Mobile Menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -139,6 +146,7 @@ const Header = () => {
             <Link
               href={L("/")}
               onClick={closeMenu}
+              aria-label="Navigate to Home Page"
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/") ? "text-primary font-semibold" : ""
               }`}
@@ -148,6 +156,7 @@ const Header = () => {
             <Link
               href={L("/about")}
               onClick={closeMenu}
+              aria-label="Navigate to About Us Page"
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/about") ? "text-primary font-semibold" : ""
               }`}
@@ -157,6 +166,7 @@ const Header = () => {
             <Link
               href={L("/services")}
               onClick={closeMenu}
+              aria-label="Navigate to Services Page"
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/services") ? "text-primary font-semibold" : ""
               }`}
@@ -166,6 +176,7 @@ const Header = () => {
             <Link
               href={L("/testimonials")}
               onClick={closeMenu}
+              aria-label="Navigate to Testimonials Page"
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/testimonials") ? "text-primary font-semibold" : ""
               }`}
@@ -175,6 +186,7 @@ const Header = () => {
             <Link
               href={L("/blog")}
               onClick={closeMenu}
+              aria-label="Navigate to Blog Page"
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/blog") ? "text-primary font-semibold" : ""
               }`}
@@ -184,14 +196,15 @@ const Header = () => {
             <Link
               href={L("/contact")}
               onClick={closeMenu}
+              aria-label="Navigate to Contact Page"
               className={`block w-full text-left py-2 text-foreground hover:text-primary transition-colors ${
                 isActive("/contact") ? "text-primary font-semibold" : ""
               }`}
             >
               {t("nav.contact")}
             </Link>
-            <Link href={L("/contact")} onClick={closeMenu}>
-              <Button className="btn-primary w-full">{t("nav.cta")}</Button>
+            <Link href={L("/contact")} onClick={closeMenu} aria-label="Go to Contact Page">
+              <Button className="btn-primary w-full" aria-label="Contact Us">{t("nav.cta")}</Button>
             </Link>
           </div>
         )}

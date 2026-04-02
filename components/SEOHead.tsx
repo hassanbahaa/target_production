@@ -37,7 +37,9 @@ export default function SEOHead({ title, description, ogImage, ogType = "website
 
   return (
     <Head>
-      {/* --- SEO: CANONICAL --- */}
+      {/* --- SEO: STANDARD METADATA --- */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* --- SEO: HREFLANG ALTERNATES --- */}

@@ -15,10 +15,11 @@ const CTABanner = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           {t("cta.title")}
         </h2>
-        <Link href={L("/contact")}>
+        <Link href={L("/contact")} aria-label="Navigate to Contact Page">
           <Button
             size="lg"
             className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+            aria-label="Contact Us button"
           >
             {t("cta.button")}
           </Button>

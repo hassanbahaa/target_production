@@ -131,7 +131,12 @@ const Testimonials = () => {
                     {t("testimonials.letterDescription")}
                   </p>
                   <div className="mt-6 p-8 bg-muted/50 rounded-lg">
-                    <div className="max-w-full md:max-w-lg mx-auto relative h-[400px] cursor-pointer" onClick={() => setLightboxOpen(true)}>
+                    <button
+                      type="button"
+                      aria-label="View sample appreciation letter full size"
+                      className="block max-w-full md:max-w-lg mx-auto relative h-[400px] cursor-pointer w-full"
+                      onClick={() => setLightboxOpen(true)}
+                    >
                       <ExportedImage
                         src={lavina}
                         alt="Sample Appreciation Letter"
@@ -140,7 +145,7 @@ const Testimonials = () => {
                         sizes="(max-width: 768px) 100vw, 500px"
                         placeholder="blur"
                       />
-                    </div>
+                    </button>
                     <p className="text-sm text-muted-foreground mt-4">
                       {t("testimonials.sampleLetter")}
                     </p>

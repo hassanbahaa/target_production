@@ -52,6 +52,7 @@ const HeroSection = () => {
           onClick={() => scrollToSection("services")}
           // size="lg"
           className="btn-primary text-lg px-8 py-6"
+          aria-label="Scroll to services section"
         >
           {t("hero.cta")}
         </Button>
