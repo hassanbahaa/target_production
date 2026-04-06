@@ -1,5 +1,5 @@
 # ROBOTS CONFIG
-# Domain: https://targethotelmarketing.com
+# Domain: https://www.targethotelmarketing.com
 
 User-agent: *
 Allow: /
@@ -10,7 +10,7 @@ Crawl-delay: 1
 Allow: /
 
 # Sitemap location
-Sitemap: https://targethotelmarketing.com/sitemap.xml
+Sitemap: https://www.targethotelmarketing.com/sitemap.xml
 
 # Disallow system files
 Disallow: /_next/

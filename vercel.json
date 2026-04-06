@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "targethotelmarketing.com"
+        }
+      ],
+      "destination": "https://www.targethotelmarketing.com/:path*",
+      "permanent": true
+    }
+  ]
+}

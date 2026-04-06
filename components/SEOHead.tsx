@@ -7,7 +7,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-export const SITE_URL = "https://targethotelmarketing.com";
+export const SITE_URL = "https://www.targethotelmarketing.com";
 
 interface SEOHeadProps {
   title: string;

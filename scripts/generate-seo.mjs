@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://targethotelmarketing.com';
+const SITE_URL = 'https://www.targethotelmarketing.com';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const CONTENT_DIR = path.join(process.cwd(), 'content/blog');
 
