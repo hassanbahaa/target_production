@@ -34,9 +34,9 @@ async function generateSitemap() {
 
   // Helper to add a URL entry with bilingual alternates
   const addUrl = (relativePath, priority = '0.5', changefreq = 'monthly') => {
-    const cleanPath = relativePath === '' ? '' : `/${relativePath}`;
+    const cleanPath = relativePath === '' ? '/' : `/${relativePath}/`;
     const enUrl = `${SITE_URL}${cleanPath}`;
-    const arUrl = `${SITE_URL}/ar${cleanPath}`;
+    const arUrl = `${SITE_URL}/ar${cleanPath === '/' ? '/' : cleanPath}`;
 
     // English entry
     xml += `  <url>

@@ -32,8 +32,8 @@ export default function SEOHead({ title, description, ogImage, ogType = "website
   const pathWithoutQuery = cleanPath.split("?")[0];
   
   const canonicalUrl = `${SITE_URL}${router.asPath.split("?")[0]}`;
-  const arUrl = `${SITE_URL}/ar${pathWithoutQuery === "/" ? "" : pathWithoutQuery}`;
-  const enUrl = `${SITE_URL}${pathWithoutQuery === "/" ? "" : pathWithoutQuery}`;
+  const arUrl = `${SITE_URL}/ar${pathWithoutQuery === "/" ? "/" : pathWithoutQuery}`;
+  const enUrl = `${SITE_URL}${pathWithoutQuery === "/" ? "/" : pathWithoutQuery}`;
 
   return (
     <Head>
